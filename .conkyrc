@@ -1,0 +1,115 @@
+background yes
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 0.5
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 250 5
+maximum_width 400
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color gray
+default_shade_color red
+default_outline_color green
+alignment top_right
+gap_x 10
+gap_y 10
+no_buffers no
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer yes
+text_buffer_size 256
+
+own_window_argb_value 0
+own_window_argb_visual yes
+own_window_colour 000000
+TEXT
+
+${font Arial:size=20}${color #9BD954}MINT
+
+${voffset -90}
+${color DimGray}
+${font}
+${font Arial:bold:size=10}${color #9BD954}SYSTEM ${color #9BD954} ${hr 2}
+$font${color DimGray}$sysname $kernel $alignr $machine
+Intel i5-2500 $alignr${freq_g cpu0}Ghz
+Uptime $alignr${uptime}
+File System $alignr${fs_type}
+
+${font Arial:bold:size=10}${color #9BD954}PROCESSORS ${color #9BD954} ${hr 2}
+$font${color DimGray}CPU1  ${cpu cpu1}% ${color #9BD954}${cpubar cpu1}
+$font${color DimGray}CPU2  ${cpu cpu2}% ${color #9BD954}${cpubar cpu2}
+$font${color DimGray}CPU3  ${cpu cpu3}% ${color #9BD954}${cpubar cpu3}
+$font${color DimGray}CPU4  ${cpu cpu4}% ${color #9BD954}${cpubar cpu4}
+
+
+${font Arial:bold:size=10}${color #9BD954}MEMORY ${color #9BD954} ${hr 2}
+$font${color DimGray}MEM $alignc $mem / $memmax $alignr $memperc%
+${color #9BD954}$membar
+
+${font Arial:bold:size=10}${color #9BD954}HDD ${color #9BD954} ${hr 2}
+$font${color DimGray}/home $alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_free_perc /home}%
+${color #9BD954}${fs_bar /home}
+$font${color DimGray}/backups $alignc ${fs_used /media/unknownpwn/Backups} / ${fs_size /media/unknownpwn/Backups} $alignr ${fs_free_perc /media/unknownpwn/Backups}%
+${color #9BD954}${fs_bar /media/unknownpwn/Backups}
+
+${font Arial:bold:size=10}${color #9BD954}TOP PROCESSES ${color #9BD954} ${hr 2}
+${color DimGray}$font${top_mem name 2}${alignr}${top mem 2} %
+$font${top_mem name 3}${alignr}${top mem 3} %
+$font${top_mem name 4}${alignr}${top mem 4} %
+$font${top_mem name 5}${alignr}${top mem 5} %
+
+${font Arial:bold:size=10}${color #9BD954}NETWORK ${color #9BD954} ${hr 2}
+$font${color DimGray}Internal IP: $alignr ${addr eth1}
+$font${color DimGray}External IP: $alignr${execi 3600 curl -s checkip.dyndns.org|sed -e 's/.*Current IP Address: //' -e 's/<.*$//'}
+
+Down: $alignr  ${downspeed eth1}
+Up: $alignr  ${upspeed eth1}
+
+Downloaded: $alignr  ${totaldown eth1}
+Uploaded: $alignr  ${totalup eth1}
+
+${font Arial:bold:size=10}${color #9BD954}NETWORK I/O ${color #9BD954} ${hr 2}
+$font${color DimGray}Inbound Connection ${alignr} Local Service/Port$color
+ $font${color DimGray}${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lport 0}
+ $font${color DimGray}${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lport 1}
+ $font${color DimGray}${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lport 2}
+ $font${color DimGray}${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lport 3}
+ $font${color DimGray}${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lport 4}
+ $font${color DimGray}${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lport 5}
+$font${color DimGray}Outbound Connection ${alignr} Remote Service/Port$color
+ $font${color DimGray}${tcp_portmon 32768 61000 rip 0} ${alignr} ${tcp_portmon 32768 61000 rport  0}
+ $font${color DimGray}${tcp_portmon 32768 61000 rip 1} ${alignr} ${tcp_portmon 32768 61000 rport  1}
+ $font${color DimGray}${tcp_portmon 32768 61000 rip 2} ${alignr} ${tcp_portmon 32768 61000 rport  2}
+ $font${color DimGray}${tcp_portmon 32768 61000 rip 3} ${alignr} ${tcp_portmon 32768 61000 rport  3}
+ $font${color DimGray}${tcp_portmon 32768 61000 rip 4} ${alignr} ${tcp_portmon 32768 61000 rport  4}
+ $font${color DimGray}${tcp_portmon 32768 61000 rip 5} ${alignr} ${tcp_portmon 32768 61000 rport  5}
+
+${font Arial:bold:size=10}${color #9BD954}WEATHER ${color #9BD954} ${hr 2}
+${font}${color DimGray}Temperature: $alignr ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ ESPA temperature}C
+Wind Speed: $alignr ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ ESPA wind_speed}KM/H
+Wind Direction: $alignr ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ ESPA wind_dir}
+
+#######MUSIC###########
+${font Arial:bold:size=10}${color #9BD954}MUSIC ${color #9BD954}${hr 2}
+${color DimGray}$font${if_running mpd}
+$mpd_smart
+$mpd_album
+Bitrate $mpd_bitrate kbits/s
+$mpd_status $mpd_elapsed/$mpd_length
+
+#${font Arial:bold:size=10}${color Tan2}TIME ${color DarkSlateGray}${hr 2}
+#
+#${color DarkSlateGray} ${font :size=30}$alignc${time %H:%Mh}
+#${voffset -30}${font :bold:size=10}$alignc${time %d %b. %Y}
+#${font :bold:size=8}$alignc${time %A}
+#$endif
